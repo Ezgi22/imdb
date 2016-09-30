@@ -19,16 +19,16 @@ public class ImdbTop250 {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.imdb.com/chart/top");
 		sortGenre(driver);
-		WebElement sortby = driver.findElement(By.className("sorting"));
+		
 		
 		for (int i=0; i <= text.length; i++ )
         {
-       
+			WebElement sortby = driver.findElement(By.className("sorting"));
 			WebElement type = sortby.findElement(By.partialLinkText(text[i]));
 			System.out.println(type.getText());
 			type.click();
 			sortMovies( driver);
-			Thread.sleep(2000);
+			
         }
 		driver.close();
 	}
